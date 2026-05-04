@@ -17,7 +17,11 @@ impl Formatter for CliFormatter {
         println!("\nSteps:");
 
         for step in &result.steps {
-            println!("{}", step.content);
+            print!("{}", step.content);
+            if step.is_cached {
+                print!(" (cached)");
+            }
+            println!();
         }
     }
 }

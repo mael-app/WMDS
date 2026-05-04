@@ -3,6 +3,7 @@ use serde::Serialize;
 #[derive(Serialize)]
 pub struct BuildStep {
     pub content: String,
+    pub is_cached: bool,
 }
 
 #[derive(Serialize)]
