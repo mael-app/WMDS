@@ -1,6 +1,7 @@
 mod cli;
 mod profiler;
 pub mod docker;
+pub mod parser;
 
 use clap::Parser;
 use cli::Cli;
