@@ -1,9 +1,8 @@
 pub mod formatter;
 
-use crate::output::formatter::{CliFormatter, Formatter};
 use crate::profiler::model::BuildResult;
 
-pub fn print(result: BuildResult) {
-    let formatter = CliFormatter;
+pub fn print(result: BuildResult, json: bool) {
+    let formatter = formatter::chose_formatter(json);
     formatter.format(&result);
 }

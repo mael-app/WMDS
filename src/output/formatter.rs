@@ -6,6 +6,8 @@ pub trait Formatter {
 
 pub struct CliFormatter;
 
+pub struct JsonFormatter;
+
 impl Formatter for CliFormatter {
     fn format(&self, result: &BuildResult) {
         println!("=== BUILD SUMMARY ===");
@@ -17,5 +19,19 @@ impl Formatter for CliFormatter {
         for step in &result.steps {
             println!("{}", step.content);
         }
+    }
+}
+
+impl Formatter for JsonFormatter {
+    fn format(&self, result: &BuildResult) {
+        println!("{}", serde_json::to_string(result).unwrap());
+    }
+}
+
+pub fn chose_formatter(json: bool) -> Box<dyn Formatter> {
+    if json == true {
+        Box::new(JsonFormatter)
+    } else {
+        Box::new(CliFormatter)
     }
 }

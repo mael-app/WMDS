@@ -6,5 +6,7 @@ pub enum Commands {
     Profile {
         /// Path to the project (where Dockerfile is located)
         path: String,
+        /// Is the output must be in json format?
+        #[arg(long)] json: bool,
     },
 }
