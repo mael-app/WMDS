@@ -4,6 +4,8 @@ use serde::Serialize;
 pub struct BuildStep {
     pub content: String,
     pub is_cached: bool,
+    pub duration_sec: f32,
+    pub id: u32,
 }
 
 #[derive(Serialize, Debug)]

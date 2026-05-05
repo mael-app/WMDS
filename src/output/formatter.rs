@@ -17,7 +17,7 @@ impl Formatter for CliFormatter {
         println!("\nSteps:");
 
         for step in &result.steps {
-            print!("{}", step.content);
+            print!("[STEP {}] ({}s) -> {}", step.id, step.duration_sec, step.content);
             if step.is_cached {
                 print!(" (cached)");
             }
